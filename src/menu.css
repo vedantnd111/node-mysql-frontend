@@ -10,7 +10,6 @@
 color: rgb(241, 238, 238);
 font-size: large;
 }
-
-/* .nav-item:hover{
-    background-color: rgba(255, 166, 0, 0.849);
-} */
+ .nav-link:hover{
+    color: blue;
+}
