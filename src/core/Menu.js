@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import '../menu.css';
+import { isAuthenticated, signout } from '../auth';
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
@@ -9,35 +10,52 @@ const isActive = (history, path) => {
     return { color: "#ffffff" };
 }
 
-const Menu = ({history}) => {
+const Menu = ({ history }) => {
     return (<div>
-        <ul className="nav nav-tabs sticky-top">
+        <ul className="nav nav-md-tabs sticky-top">
             <li className="nav-item">
                 <Link className="nav-link" style={isActive(history, '/')} to="/">
                     Home
                  </Link>
             </li>
-            <li className="nav-item">
-                <Link className="nav-link"  style={isActive(history, '/user/dashboard')} to="/user/dashboard">
+            {isAuthenticated() && isAuthenticated().user.role === 0 && <li className="nav-item">
+                <Link className="nav-link" style={isActive(history, '/user/dashboard')} to="/user/dashboard">
                     Dashboard
              </Link>
 
-            </li>
+            </li>}
+            {isAuthenticated() && isAuthenticated().user.role === 1 && <li className="nav-item">
+                <Link className="nav-link" style={isActive(history, '/admin/dashboard')} to="/admin/dashboard">
+                    Dashboard
+             </Link>
+
+            </li>}
+            {!isAuthenticated() && <Fragment>
+                <li className="nav-item">
+                    <Link className="nav-link nav-light" style={isActive(history, '/signin')} to="/signin">
+                        sign in
+                </Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link nav-light" style={isActive(history, '/signup')} to="/signup">
+                        sign up
+                </Link>
+                </li>
+            </Fragment>}
             <li className="nav-item">
-                <Link className="nav-link"  style={isActive(history, '/aboutus')} to="/aboutus">
+                <Link className="nav-link" style={isActive(history, '/aboutus')} to="/aboutus">
                     About us
                  </Link>
             </li>
-            <li className="nav-item">
-                <Link className="nav-link nav-light"  style={isActive(history, '/signin')} to="/signin">
-                    sign in
+            {isAuthenticated() && <li className="nav-item">
+                <Link className="nav-link nav-light" style={isActive(history, '/signout')} to="/signout" onClick={() => {
+                    signout(() => { history.push('/') })
+                }}>
+                    sign out
                 </Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link nav-light"  style={isActive(history, '/signup')} to="/signup">
-                    sign up
-                </Link>
-            </li>
+            </li>}
+
+
 
         </ul>
 
