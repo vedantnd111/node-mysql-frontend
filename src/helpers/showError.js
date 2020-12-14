@@ -1,7 +1,7 @@
 import React from 'react'
 
 function ShowError({error}) {
-    return <div className="alert alert-danger" style={{ display: error ? '' : 'none' }}>
+    return <div className="alert alert-danger mt-3" style={{ display: error ? '' : 'none' }}>
             <h5>{error}</h5>
         </div>
 }

@@ -81,6 +81,9 @@ font-size: large;
      }
  }
  
+ .nav-link:hover{
+     color: blue;
+ }
  /**
   * jumbotron animation
   */

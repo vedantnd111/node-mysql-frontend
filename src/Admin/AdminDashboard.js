@@ -22,16 +22,16 @@ function AdminDashboard() {
                         Manage rooms
                         </Link>
                 </li>
-                <li className="list-group-item">
+                {/* <li className="list-group-item">
                     <Link className="nav-link text-dark" to="/orders">
                         View orders
                         </Link>
-                </li>
-                <li className="list-group-item">
+                </li> */}
+                {/* <li className="list-group-item">
                     <Link className="nav-link text-dark" to="/orders">
                         update
                         </Link>
-                </li>
+                </li> */}
 
             </ul>
         </div>

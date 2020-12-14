@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './Home';
 import AdminDashboard from '../Admin/AdminDashboard';
 import UserDashboard from '../User/UserDashboard';
-import AboutUs from './AboutUs';
+import ContactUs from './ContactUs';
 import Signin from './Signin';
 import Signup from './Signup';
 import CreateRoom from '../Admin/CreateRoom';
@@ -18,7 +18,7 @@ const Routes = () => (
         <Route path="/" exact component={Home} />
         <AdminRoutes path="/admin/dashboard" exact component={AdminDashboard} />
         <PrivateRoutes path="/user/dashboard" exact component={UserDashboard} />
-        <Route path="/aboutus" exact component={AboutUs}/>
+        <Route path="/contactus" exact component={ContactUs}/>
         <Route path="/signin" exact component={Signin}/>
         <Route path="/signup" exact component={Signup}/>
         <AdminRoutes path="/create/room" exact component={CreateRoom}/>

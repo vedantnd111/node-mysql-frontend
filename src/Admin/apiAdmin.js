@@ -2,7 +2,7 @@ const {
     API
 } = require("../configure")
 
-const createRoom = (userId, token, room) => {
+export const createRoom = (userId, token, room) => {
     return fetch(`${API}/api/room/${userId}`, {
         method: 'POST',
         headers: {
@@ -15,7 +15,8 @@ const createRoom = (userId, token, room) => {
         return response.json();
     }).catch(err => console.log(err));
 };
-const updateRoomById = (userId, token, room, roomId) => {
+
+export const updateRoomById = (userId, token, room, roomId) => {
     return fetch(`${API}/api/room/${roomId}/${userId}`, {
         method: "PUT",
         headers: {
@@ -28,7 +29,7 @@ const updateRoomById = (userId, token, room, roomId) => {
     }).catch(err => console.log(err));
 }
 
-const deleteRoomById = (userId, token, roomId) => {
+export const deleteRoomById = (userId, token, roomId) => {
     return fetch(`${API}/api/room/${roomId}/${userId}`, {
         method: 'DELETE',
         headers: {
@@ -39,4 +40,11 @@ const deleteRoomById = (userId, token, roomId) => {
     }).then(response => {
         return response.json();
     }).catch(err => console.log(err));
-}
+};
+
+export const listAll = () => {
+    return fetch(`${API}/api/rooms/admin`, {
+            method: 'GET'
+        }).then(response => response.json())
+        .catch(err => console.log(err));
+};
