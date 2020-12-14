@@ -13,7 +13,7 @@ function RoomPage(props) {
         <div className="container-md-fluid">
             <Menu />
             <div className="m-4">
-                <h2 style={{ textAlign: "center" }}> {room.hostel_name}</h2>
+                <h2 style={{ textAlign: "center",fontWeight:"bold" }}> {room.hostel_name}</h2>
             </div>
             <div className="row">
 

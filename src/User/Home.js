@@ -51,6 +51,8 @@ const Home = () => {
     }, []);
     return (
         <Layout title="Home" description="WELCOME TO HOME PAGE!!" className="container-fluid">
+            <h1 style={{textAlign:"center",fontWeight:"bold"}}>Available Rooms</h1>
+            <h3 style={{fontWeight:"bold"}}>Total Available Rooms: {rooms.length}</h3>
             <div className="row">
                 <ShowError error={error} />
                 {

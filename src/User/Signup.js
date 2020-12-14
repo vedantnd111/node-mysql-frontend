@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { signUpFetch } from '../auth';
 import ShowError from '../helpers/showError';
-import '../signup.css';
 import Menu from '../core/Menu';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -131,7 +130,7 @@ const useStyles = makeStyles((theme) => ({
       <Fragment>
         <Menu />
 
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className="bg-dark" style={{borderRadius: "10px"}}>
         <ShowError error={error} />
         {showSuccess(success)}
       <CssBaseline />
@@ -139,13 +138,14 @@ const useStyles = makeStyles((theme) => ({
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style={{color:"white"}}>
           Sign up
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid item xs={12} className="bg-white m-2" style={{borderRadius:"10px"}}>
               <TextField
+            //   className="bg-white"
                 // autoComplete="fname"
                 // name="firstName"
                 value={name}
@@ -159,7 +159,7 @@ const useStyles = makeStyles((theme) => ({
                 autoFocus
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} className="bg-white m-2" style={{borderRadius:"10px"}}>
               <TextField
                 variant="outlined"
                 required
@@ -173,7 +173,7 @@ const useStyles = makeStyles((theme) => ({
                 autoComplete="email"
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} className="bg-white m-2" style={{borderRadius:"10px"}}>
               <TextField
                 variant="outlined"
                 required
@@ -199,8 +199,8 @@ const useStyles = makeStyles((theme) => ({
             Sign Up
           </Button>
           <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="/signin" variant="body2" >
+            <Grid item className="m-2">
+              <Link href="/signin"  style={{color:"white"}} variant="body2" >
                 Already have an account? Sign in
               </Link>
             </Grid>

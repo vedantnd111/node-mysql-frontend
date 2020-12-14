@@ -3,7 +3,7 @@ import { isAuthenticated } from '../auth';
 import Layout from '../core/Layout';
 import DropIn from 'braintree-web-drop-in-react';
 import ShowError from '../helpers/showError';
-import ShowLoading from '../helpers/ShowLoading';
+// import ShowLoading from '../helpers/ShowLoading';
 import { fillingTenant, getBraintreeClientToken, processPayment } from './apiUsers';
 import { Link } from 'react-router-dom';
 import { API } from '../configure';
@@ -86,7 +86,7 @@ function BuyRoom(props) {
 
                 processPayment(isAuthenticated().user.id, token, paymentData)
                     .then(response => {
-                        // console.log("response ", response);
+                        console.log("response ", response);
                         setData({ ...data, success: response.success });
                         if (response.success) {
                             fillTenant();
@@ -164,15 +164,21 @@ function BuyRoom(props) {
             <h3> Transaction succesful!!</h3>
         </div>
     );
+    const ShowLoading = (loading) => (
+        <div className="alert alert-info" style={{ display: loading ? '' : 'none' }}>
+            <h3> Transaction succesful!!</h3>
+        </div>
+    );
+
 
 
     return (
-        <Layout title={`Hey ${name}!! Buy rooms here!`} description="Pay rent here with your method of convinience" className="container">
+        <Layout title={`Hey ${name}, Buy rooms here!`} description="Pay rent here with your method of convinience" className="container">
             <div>
-                <h2 style={{ textAlign: "center" }}>Hostel Name: {room.hostel_name}</h2>
-                <h4 style={{ textAlign: "center" }}>Total: ${room.price}</h4>
+                <h2 style={{ textAlign: "center",fontWeight:"bold" }}>Hostel Name: {room.hostel_name}</h2>
+                <h4 style={{ textAlign: "center",fontWeight:"bold" }}>Total: ${room.price}</h4>
                 <ShowError error={error} />
-                {/* <ShowLoading loading={loading} /> */}
+                {ShowLoading(loading)}
                 {showSuccess(success)}
                 <div className="row justify-content-center">
                     <div className="col-md-4  my-4">

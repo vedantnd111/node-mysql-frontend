@@ -105,23 +105,25 @@ const Signin = () => {
     //         <button className="btn btn-outline-primary my-2" onClick={clickSubmit}>signin</button>
     //     </form>
     // );
-
-    const signInForm=()=>(
-        <Container component="main" maxWidth="xs">
+  
+    return (
+        <div className="container-md">
+            <Menu />
+                <Container component="main" maxWidth="xs"  className="bg-dark" style={{borderRadius: "10px"}}>
+                {redirectTo()}
             <ShowError error={error} />
                 <ShowLoading loading={loading} />
-        <ShowError error={error} />
       <CssBaseline />
-      <div className={classes.paper}>
+      <div className={classes.paper} >
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style={{color:"white"}}>
           Sign in
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid item xs={12} className="bg-white m-2" style={{borderRadius:"10px"}}>
               <TextField
                 variant="outlined"
                 required
@@ -135,7 +137,7 @@ const Signin = () => {
                 autoComplete="email"
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} className="bg-white m-2" style={{borderRadius:"10px"}}>
               <TextField
                 variant="outlined"
                 required
@@ -161,8 +163,8 @@ const Signin = () => {
             Sign In
           </Button>
           <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="/signup" variant="body2" >
+            <Grid item className="m-2">
+              <Link href="/signup" style={{color:"white"}} variant="body2" >
                 Do not have an account ? register here
               </Link>
             </Grid>
@@ -174,15 +176,6 @@ const Signin = () => {
       </Box> */}
     </Container>
  
-    );
-
-  
-
-    return (
-        <div className="container-md">
-            <Menu />
-                {redirectTo()}
-                {signInForm()}
         </div>
     )
 }
