@@ -6,17 +6,23 @@ import '../style.css';
 
 function Card({ room }) {
 
-    const id=room.rid;
+    const id = room.rid;
 
     const redirectToDetails = () => (
-        <Link to={{ pathname: "/Roompage", query:  room  }}>
+        <Link to={{ pathname: "/Roompage", query: room }}>
             <button className="btn btn-outline-primary mt-2 mb-2 card-btn-1">View details</button>
         </Link>);
 
+    const buyRoom = () => (
+        <Link to={{ pathname: '/Buy', query: room }}>
+            <button className="btn btn-outline-danger ml-2 mt-2 mb-2 card-btn-1">Rent now</button>
+        </Link>
+    );
+
     return (
         <div className="card">
-            <div className="card-header card-header-l">
-                <span className="font-weight-bold text-dark">hostel name: </span>
+            <div className="card-header card-header-l name">
+                <span className="font-weight-bold ">hostel name: </span>
                 {room.hostel_name}</div>
             <div className="card-body">
                 <ShowImage item={room} id={id} />
@@ -39,7 +45,10 @@ function Card({ room }) {
                     <span className="font-weight-bold text-dark">price : </span>
                     $ {room.price}</p>
                 {/* <p className="black-8">Added on {moment(room.date).fromNow()}</p> */}
-                {redirectToDetails()}
+                <div className="row">
+                    {redirectToDetails()}
+                    {buyRoom()}
+                </div>
 
             </div>
 

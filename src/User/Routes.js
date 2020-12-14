@@ -11,6 +11,7 @@ import AdminRoutes from '../auth/AdminRoutes';
 import PrivateRoutes from '../auth/PrivateRoutes';
 import { signout } from '../auth';
 import RoomPage from '../core/RoomPage';
+import BuyRoom from './BuyRoom';
 
 const Routes = () => (
     <BrowserRouter>
@@ -23,6 +24,7 @@ const Routes = () => (
         <AdminRoutes path="/create/room" exact component={CreateRoom}/>
         <PrivateRoutes path="/signout" exact component={signout} />
         <Route path="/Roompage" exact component={RoomPage} />
+        <PrivateRoutes path="/Buy" exact component={BuyRoom}  />
     </BrowserRouter>
 );
 

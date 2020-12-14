@@ -1,6 +1,12 @@
 .material-icons {
     font-size: 6rem;
 }
+.name {
+    background: indigo;
+    color: #fff;
+    font-weight: bold;
+}
+
 
 /* black shade form 10-1 */
 .black-10 {
